@@ -52,6 +52,7 @@ public class MemberController {
 				model.addAttribute("currentMember", memberVO);
 				
 				String dest = (String)session.getAttribute("dest");
+				session.removeAttribute("dest"); // 값 스트링으로 저장 후 삭제. 하지 않으면 계속 유지됨
 				if (dest == null) {
 					// 바로 로그인 누르는 경우
 					return "redirect:/";
