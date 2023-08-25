@@ -50,7 +50,16 @@ public class MemberController {
 //				session.setAttribute("currentMember", memberVO);
 				// model에 등록한 것 중에 session으로 올려줌 - spring이 해줌
 				model.addAttribute("currentMember", memberVO);
-				return "redirect:/";
+				
+				String dest = (String)session.getAttribute("dest");
+				if (dest == null) {
+					// 바로 로그인 누르는 경우
+					return "redirect:/";
+					// 메인 페이지로 이동
+				} else {
+					// 로그인이 필요한 페이지를 들렸다 오는경우
+					return "redirect:" +dest;
+				}
 				
 			}
 			

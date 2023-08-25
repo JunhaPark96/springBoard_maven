@@ -8,24 +8,23 @@
 <title>상세 게시글</title>
 </head>
 <body>
-	<%-- ${boardVO} --%>
 	<a href="${pageContext.request.contextPath}/">
 	<img alt="" src="https://realresearcher.co.kr/web/upload/NNEditor/20230803/ED91B8EBB094EC98A4_EC97B0ED95A9EB89B4EC8AA4.jpg">
 	</a><br>
-	<a href="${pageContext.request.contextPath}/board"> 게시판 </a>
+	<a href="${pageContext.request.contextPath}/board"> 게시판-- </a>
 
-	<a href="${pageContext.request.contextPath}/board/new"> 글 작성 </a>
+	<a href="${pageContext.request.contextPath}/board/new"> 글 작성-- </a>
 
-	<a href="${pageContext.request.contextPath}/login"> 로그인 페이지 </a>
+	<%-- <a href="${pageContext.request.contextPath}/login"> 로그인 페이지 </a> --%>
 
-	<a href="${pageContext.request.contextPath}/signup"> 회원가입 페이지 </a>
+	<a href="${pageContext.request.contextPath}/signup"> 회원가입-- </a>
 	
 	<c:if test="${not empty  currentMember}">
 		<br>${currentMember.name } 님 안녕하세요
-		<a href="${pageContext.request.contextPath}/logout">로그아웃</a><br>
+		<a href="${pageContext.request.contextPath}/logout">로그아웃--</a><br>
 	</c:if>
 	<c:if test="${empty currentMember}">
-		<a href="${pageContext.request.contextPath}/login">로그인</a><br>
+		<a href="${pageContext.request.contextPath}/login">로그인--</a><br>
 	</c:if>
 	<div align="center">
 		<table>
