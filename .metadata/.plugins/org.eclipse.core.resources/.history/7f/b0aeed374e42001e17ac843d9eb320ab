@@ -1,0 +1,14 @@
+package kr.ac.kopo.board.service;
+
+import kr.ac.kopo.board.vo.LoginVO;
+import kr.ac.kopo.board.vo.MemberVO;
+
+public class LoginServiceImpl implements LoginService{
+
+	@Override
+	public MemberVO loginMember(LoginVO loginVO) {
+		
+		return null;
+	}
+
+}

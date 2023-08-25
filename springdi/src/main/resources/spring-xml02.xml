@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">		
+	
+	<bean id="car" class="springdi.xml02.Car">
+		<!-- setter와 동일 -->
+		<property name="tire" ref="kumhoTire"></property>
+		<property name="spareTire" ref="hankookTire"></property>
+		<property name="carName" value="Genesis"></property>
+		<property name="year" value="2023"></property>
+	</bean>
+	<bean id="hankookTire" class="springdi.xml02.HankookTire"></bean>
+	<bean id="kumhoTire" class="springdi.xml02.KumhoTire"></bean>
+	
+	<!-- 순수 자바 setter 이용 
+		Car car = new Car(); 
+		KumhoTire k = new KumhoTire();
+		car.setTire(k);
+	-->
+	
+</beans>

@@ -1,0 +1,26 @@
+package springdi_assignment.calculator.annoVer3;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Config {
+	
+	@Qualifier("mycar")
+	@Bean
+	public Calculator calculator() {
+		return new Calculator();
+	}
+	
+	@Qualifier("h1")
+	@Bean
+	public HankookTire hankookTire() {
+		return new HankookTire();
+	}
+	@Qualifier("kumhoTire")
+	@Bean
+	public KumhoTire kumhoTire() {
+		return new KumhoTire();
+	}
+	
+}

@@ -1,0 +1,25 @@
+package springdi_assignment.tv_speaker.ver1;
+
+public class LGTV implements TVService{
+
+	@Override
+	public void turnoff() {
+		System.out.println("TV 전원 꺼짐");		
+	}
+
+	@Override
+	public void volumeup() {
+		System.out.println("TV 볼륨 키우기");
+	}
+
+	@Override
+	public void volumedown() {
+		System.out.println("TV 볼륨 낮추기");		
+	}
+
+	@Override
+	public void printSpeakerBrand() {
+		System.out.println("스피커 브랜드는 " + leftSpeaker.getBrand());
+	}
+	
+}

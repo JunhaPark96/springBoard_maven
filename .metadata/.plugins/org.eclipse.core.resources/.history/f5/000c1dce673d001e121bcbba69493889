@@ -1,0 +1,9 @@
+package mybatis;
+
+public class BoardVO {
+	private int no;
+	private String title;
+	private String writer;
+	private String content;
+	private String 
+}

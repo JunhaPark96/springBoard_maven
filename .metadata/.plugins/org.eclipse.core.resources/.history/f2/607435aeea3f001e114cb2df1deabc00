@@ -1,0 +1,18 @@
+package kr.ac.kopo.hello;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HelloController {
+	// handler 설정
+	// method, client가 요청하면 요청을 받아주는 것
+	@RequestMapping("/hello/hello") // == http://localhost:8080/springmvc/hello/hello
+	public ModelAndView hello() {
+		ModelAndView mav = new ModelAndView("hello/hello");
+		// view는 jsp 파일임
+		// WEB-INF
+		return mav;
+	}
+}

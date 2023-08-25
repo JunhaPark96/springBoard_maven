@@ -1,0 +1,15 @@
+package springdi_assignment.tv_speaker.ver1;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class CoreApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext ac= new GenericXmlApplicationContext("tv_speaker1.xml");
+		
+		SamsungTV stv = (SamsungTV) ac.getBean("tv");
+		System.out.println(stv.toString());
+	}
+
+}

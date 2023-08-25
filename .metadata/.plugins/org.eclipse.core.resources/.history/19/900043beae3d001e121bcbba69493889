@@ -1,0 +1,16 @@
+package springdi_assignment.tv_speaker.ver1;
+
+public class TV {
+	private SpeakerService leftSpeaker;
+	private SpeakerService rightSpeaker;
+	private String brandName;
+	public TV(SpeakerService leftSpeaker, SpeakerService rightSpeaker, String brandName) {
+		super();
+		this.leftSpeaker = leftSpeaker;
+		this.rightSpeaker = rightSpeaker;
+		this.brandName = brandName;
+	}
+	
+	
+
+}

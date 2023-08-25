@@ -1,0 +1,20 @@
+package kr.ac.kopo.board.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.ac.kopo.board.vo.LoginVO;
+import kr.ac.kopo.board.vo.MemberVO;
+
+@Service
+public class MemberServiceImpl implements MemberService{
+	@Autowired
+	private M
+	
+	@Override
+	public MemberVO loginMember(LoginVO loginVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

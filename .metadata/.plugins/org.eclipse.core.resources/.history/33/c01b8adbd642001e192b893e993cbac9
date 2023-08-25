@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springboard.board.dao.MemberDAO">
+	<!-- parameterType = 요청정보, resultType = 결과정보 -->
+	<select id="login" resultType="kr.ac.kopo.board.vo.MemberVO" parameterType="kr.ac.kopo.board.vo.LoginVO">
+		select * from t_member where id = #{id} and password = #{password}
+	</select>
+	
+	<insert id="signup" parameterType="kr.ac.kopo.board.vo.MemberVO">
+		insert into t_member values (seq_t_member_no.nextval, #{)
+	</insert>
+	
+	<!-- <insert id="insertNewPost" parameterType="kr.ac.kopo.board.vo.MemberVO">
+		insert into t_member values (seq_t_member_no.nextval, #{id}, #{password}, #{name}, #{address})
+	</insert> -->
+</mapper>

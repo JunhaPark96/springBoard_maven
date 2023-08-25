@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	전체 게시판<br>
+	<table border="1px solid black">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${boardList }" var="board" varStatus="loop">
+				<td>${boardList.no }</td>
+				<td>${boardList.title }</td>
+				<td>${boardList.writer }</td>
+				<td>${boardList.regDate }</td>
+				<td></td>
+				
+			</c:forEach>
+			<tr>
+			</tr>
+		</tbody>
+	</table>
+	${boardList}
+</body>
+</html>

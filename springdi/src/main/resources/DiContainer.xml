@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">		
+	<!-- 자바빈 id="변수이름" class="패키지.클래스이름" -->
+	<bean id="ht" class="springdi.xml01.HankookTire"/>
+	<bean id="kt" class="springdi.xml01.KumhoTire"/>
+	
+	<bean id="car" class="springdi.xml01.Car">
+	<constructor-arg ref="ht"></constructor-arg>
+	<constructor-arg value="genesis"></constructor-arg>
+	</bean>
+	<bean id="car1" class="springdi.xml01.Car">
+	<constructor-arg ref="ht" index="0"></constructor-arg>
+	<constructor-arg value="genesis" index="1"></constructor-arg>
+	<constructor-arg value="2022" index="2"></constructor-arg>
+	</bean>
+	
+	<bean id="car4" class="springdi.xml01.Car">
+		<constructor-arg>
+			<ref bean="ht"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="car5" class="springdi.xml01.Car">
+		<property name="drivers">
+			<list>
+				<value>a</value>
+				<value>b</value>
+				<value>c</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="car6" class="springdi.xml01.Car">
+		<property name="person">
+			<map>
+				<entry key="1" value="박태현"></entry>
+				<entry key="2" value="정수영"></entry>
+			</map>
+		</property>
+	</bean>
+</beans>

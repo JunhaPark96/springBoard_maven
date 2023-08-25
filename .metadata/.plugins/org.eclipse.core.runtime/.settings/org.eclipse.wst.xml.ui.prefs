@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+newFileTemplateName=xml declaration
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="xml_all" deleted\="false" description\="beans \uAE30\uBCF8\uC138\uD305" enabled\="true" name\="beans">&lt;beans xmlns\="http\://www.springframework.org/schema/beans"&\#13;\r\n\txmlns\:context\="http\://www.springframework.org/schema/context"&\#13;\r\n\txmlns\:xsi\="http\://www.w3.org/2001/XMLSchema-instance"&\#13;\r\n\txsi\:schemaLocation\=&\#13;\r\n\t"http\://www.springframework.org/schema/beans http\://www.springframework.org/schema/beans/spring-beans.xsd&\#13;\r\n\thttp\://www.springframework.org/schema/context&\#13;\r\n\thttp\://www.springframework.org/schema/context/spring-context.xsd&\#13;\r\n\t"&gt;&\#13;\r\n\t&lt;context\:annotation-config/&gt;&\#13;\r\n&lt;/beans&gt;</template></templates>
+org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart.lastActivePage=1
+xml_content_assist_default_page_sort_order=org.eclipse.wst.xml.ui.proposalCategory.xmlTags\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTemplates\u0000
+xml_content_assist_own_page_sort_order=org.eclipse.wst.xml.ui.proposalCategory.xmlTemplates\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTags\u0000

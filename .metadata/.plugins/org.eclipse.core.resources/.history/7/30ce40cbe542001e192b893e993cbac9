@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입 페이지 입니다</h1>
+	<div>
+		<form:form action="${pageContext.request.contextPath }/signup"
+			method="post" modelAttribute="memberVO">
+			id: <form:input path="id" />
+			<form:errors path="id"></form:errors>
+			<br>
+			password: <form:input path="password" />
+			<form:errors path="password"></form:errors>
+			<br>
+			name: <form:input path="name" />
+			<form:errors path="name"></form:errors>
+			<br>
+			address: <form:input path="address" />
+			<form:errors path="address"></form:errors>
+			<br>
+			<input type="submit" value="회원가입">
+			<br>
+		</form:form>
+	</div>
+</body>
+</html>

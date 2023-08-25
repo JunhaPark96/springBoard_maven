@@ -1,0 +1,8 @@
+package springdi_assignment.calculator.annoVer3;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Config {
+	
+}

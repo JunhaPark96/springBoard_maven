@@ -1,0 +1,8 @@
+package springdi_assignment.tv_speaker.ver1;
+
+public class TV {
+	private SpeakerService leftSpeaker;
+	private SpeakerService rightSpeaker;
+	private SamsungTV samsungTV;
+
+}

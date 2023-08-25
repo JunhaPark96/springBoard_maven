@@ -1,0 +1,5 @@
+package springdi_assignment.tv_speaker.annover4;
+
+public class Config {
+
+}

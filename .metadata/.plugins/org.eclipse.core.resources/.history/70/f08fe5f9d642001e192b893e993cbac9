@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입 페이지 입니다</h1>
+	<div>
+		<form:form action="${pageContext.request.contextPath }/login" method="post" modelAttribute="loginVO">
+			id: <form:input path="id"/><form:errors path="id"></form:errors> <br>
+			password: <form:input path="password"/> <form:errors path="password"></form:errors><br>
+			<input type="submit" value="로그인"><br>
+		</form:form>
+	</div> 
+</body>
+</html>

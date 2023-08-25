@@ -1,0 +1,21 @@
+package kr.ac.kopo.board.dao;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import kr.ac.kopo.board.vo.BoardVO;
+
+public class BoardDAOImpl implements BoardDAO{
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+	
+	@Override
+	public List<BoardVO> getAllPost() {
+		// namespace + id
+		sqlSessionTemplate.selectList("springboard.board.dao.BoardDAO.selectAll");
+		return null;
+	}
+
+}

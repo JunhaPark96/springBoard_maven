@@ -1,0 +1,6 @@
+package kr.ac.kopo.board.vo;
+
+public class MemberVO {
+	private int no;
+	
+}

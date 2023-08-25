@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- request.uri - springmvc/hello/hello -->
+	<!-- request.contextPath - springmvc -->
+	<!-- request.servletPath - hello/hello -->
+	<%-- <a href="<%=request.getContextPath()%>/hello/h1"> HelloController </a> --%>
+	requset.contextPath<a href="${pageContext.request.contextPath}/hello/h1"> HelloController </a><br>
+	request.servletPath: <a href="${pageContext.request.servletPath}/hello/h1"> HelloController </a><br>
+	request.uri: <a href="${pageContext.request.requestURI}/hello/h1"> HelloController </a><br>
+	
+	request.contextPath<a href="${pageContext.request.contextPath}/method/method"> MethodController </a><br>
+	
+	request.contextPath <a href="${pageContext.request.contextPath}/member/joinForm"> MemberController</a><br>
+	
+	request.contextPath <a href="${pageContext.request.contextPath}/stringresponse"> ResponseBodyController</a><br>
+	request.contextPath <a href="${pageContext.request.contextPath}/stringresponse"> voController</a><br>
+</body>
+</html>

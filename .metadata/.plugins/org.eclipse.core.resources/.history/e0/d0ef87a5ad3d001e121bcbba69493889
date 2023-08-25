@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="abc" class = "springdi_assignment.tv_speaker.ver1.ABCspeaker"/>
+	<bean id="xyz" class = "springdi_assignment.tv_speaker.ver1.XYZspeaker"/>
+	<bean id="samsung" class = "springdi_assignment.tv_speaker.ver1.SamsungTV"/>
+	<bean id="LG" class = "springdi_assignment.tv_speaker.ver1.LGTV"/>
+	
+	<bean id="tv" class="springdi_assignment.tv_speaker.ver1.SamsungTV">
+		<constructor-arg ref="abc" index="0" name="leftSpeaker"></constructor-arg>
+		<constructor-arg ref="xyz" index="1" name="rightSpeaker"></constructor-arg>
+	</bean>
+	
+	
+</beans>

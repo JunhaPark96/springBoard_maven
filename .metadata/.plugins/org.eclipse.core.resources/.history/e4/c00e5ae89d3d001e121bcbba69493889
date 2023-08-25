@@ -1,0 +1,19 @@
+package springdi_assignment.tv_speaker.ver1;
+
+public class ABCspeaker implements SpeakerService{
+	
+
+	public String getBrand() {
+		return "ABC 스피커";
+	}
+
+	public  volumeup(int volumne) {
+		return volume++;
+	}
+
+	public void volumedown(int volumne) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

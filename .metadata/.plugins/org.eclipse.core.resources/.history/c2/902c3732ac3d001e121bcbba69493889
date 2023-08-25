@@ -1,0 +1,29 @@
+package springdi_assignment.tv_speaker.ver1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+public class XYZspeaker implements SpeakerService{
+	private String Brand;
+	
+	public XYZspeaker() {
+		super();
+	}
+
+	public XYZspeaker(String brand) {
+		Brand = brand;
+	}
+
+	public String getBrand() {
+		return "XYZ 스피커";
+	}
+
+	public void volumeup() {
+		System.out.println("볼륨 +1");
+	}
+
+	public void volumedown() {
+		System.out.println("볼륨 -1");
+	}
+	
+}

@@ -1,0 +1,8 @@
+package kr.ac.kopo.form;
+
+public class MemberVO {
+	String id;
+	String passwd;
+	
+	
+}

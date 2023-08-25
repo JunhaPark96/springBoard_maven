@@ -1,0 +1,19 @@
+package kr.ac.kopo.method;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class MethodController {
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/method/method")
+	public void get() {
+		
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "/method/method")
+	public void post() {
+		
+	}
+}

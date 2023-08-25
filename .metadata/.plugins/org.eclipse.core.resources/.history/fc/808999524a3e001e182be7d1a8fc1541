@@ -1,0 +1,34 @@
+package springdi_assignment.calculator.annoVer3;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Config {
+	
+	@Qualifier("calc")
+	@Bean
+	public MyCalculator myCalculator() {
+		return new MyCalculator();
+	}
+	
+	@Bean
+	public AddCalculator addCalculator() {
+		return new AddCalculator();
+	}
+	@Bean
+	public SubCalculator subCalculator() {
+		return new SubCalculator();
+	}
+	@Bean
+	public AddCalculator addCalculator() {
+		return new AddCalculator();
+	}
+	@Bean
+	public AddCalculator addCalculator() {
+		return new AddCalculator();
+	}
+	
+	
+}

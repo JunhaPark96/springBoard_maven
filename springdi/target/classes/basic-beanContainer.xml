@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  스프링 bean의 name-space
+빈 스키마에 대한 규정 -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 자바빈 id="변수이름" class="패키지.클래스이름" -->
+	<bean id="h1" class="springdi.basic.Hello"/>
+	<bean id="h2" class="springdi.basic.Hello"/>
+		
+</beans>

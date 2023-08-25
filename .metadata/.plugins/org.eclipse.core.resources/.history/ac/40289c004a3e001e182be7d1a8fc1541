@@ -1,0 +1,21 @@
+package springdi_assignment.calculator.annoVer3;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Config {
+	private Calculator calculator;
+	
+	public Config() {
+	}
+
+	public Calculator getCalculator() {
+		return calculator;
+	}
+
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+	
+	
+}

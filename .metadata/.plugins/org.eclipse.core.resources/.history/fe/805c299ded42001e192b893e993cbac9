@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan
+		base-package="kr.ac.kopo" /> <!-- 빈 자동주입 -->
+	<!-- annotation 인식 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<mvc:default-servlet-handler /> <!-- 서블렛 핸들러 -->
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
+	</mvc:view-resolvers>
+	
+	<!-- 가지고 있는 모든 url을 로그인 연동 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/"/>
+			<ref bean="LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 오라클 드라이버 연동 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url"
+			value="jdbc:oracle:thin:@192.168.119.119:1521:dink09" />
+		<property name="username" value="scott" />
+		<property name="password" value="tiger" />
+	</bean>
+
+	<!-- 세션 연결 연결 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation"
+			value="classpath:config/mybatis/mybatis-config.xml"></property>
+		<property name="mapperLocations"
+			value="classpath:mapper/*.xml"></property> <!-- 모든 매퍼 -->
+	</bean>
+
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+
+	<!-- 파일업로드 -->
+	<mvc:view-controller path="/file/uploadform"
+		view-name="file/fileUploadForm" />
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760" />
+	</bean>
+</beans>

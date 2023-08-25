@@ -1,0 +1,17 @@
+package kr.ac.kopo.board.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
+
+import kr.ac.kopo.board.vo.MemberVO;
+
+@Repository
+public class MemberDAOImpl implements MemberDAO{
+	SqlSessionTemplate sqlSessionTemplate;
+
+	@Override
+	public MemberVO login() {
+		return null;
+	}
+
+}

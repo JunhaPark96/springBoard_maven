@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="add"
+		class="springdi_assignment.calculator.xmlver.AddCalculator" />
+	<bean id="sub"
+		class="springdi_assignment.calculator.xmlver.SubCalculator" />
+	<bean id="mul"
+		class="springdi_assignment.calculator.xmlver.MulCalculator" />
+	<bean id="div"
+		class="springdi_assignment.calculator.xmlver.DivCalculator" />
+	<!-- 생성자 주입 -->
+	<!-- <bean id="calc" class="springdi_assignment.calculator.xmlver.MyCalculator"> 
+		<constructor-arg value="5" index="0"></constructor-arg> <constructor-arg 
+		value="5" index="1"></constructor-arg> <constructor-arg ref="sub" index="2"></constructor-arg> 
+		</bean> -->
+
+	<!-- setter 주입 -->
+	<bean id="calc"
+		class="springdi_assignment.calculator.xmlver.MyCalculator">
+		<property name="firstNum" value="5" />
+		<property name="secondNum" value="5" />
+		<property name="calculator" ref="mul" />
+	</bean>
+
+</beans>

@@ -1,0 +1,12 @@
+package kr.ac.kopo.response;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class ResponseBodyController {
+	@ResponseBody
+	public String response() {
+		return "
+	}
+}

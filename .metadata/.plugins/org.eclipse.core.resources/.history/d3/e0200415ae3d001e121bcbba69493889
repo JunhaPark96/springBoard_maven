@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="abc" class = "springdi_assignment.tv_speaker.ver1.ABCspeaker"/>
+	<bean id="xyz" class = "springdi_assignment.tv_speaker.ver1.XYZspeaker"/>
+	
+	<!-- 생성자 주입 -->
+	¿<bean id="tv" class="springdi_assignment.tv_speaker.ver1.SamsungTV">
+		<constructor-arg ref="abc" index="0" name="leftSpeaker"></constructor-arg>
+		<constructor-arg ref="xyz" index="1" name="rightSpeaker"></constructor-arg>
+	</bean>
+	<!-- setter 주입 -->
+	<bean id="tv" class="springdi_assignment.tv_speaker.ver1.LGTV">
+		<property name="leftSpeaker" ref="abc"></property>
+		<property name="rightSpeaker" ref="xyz"></property>
+	</bean>
+	
+</beans>

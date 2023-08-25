@@ -1,0 +1,10 @@
+package kr.ac.kopo.board.vo;
+
+import javax.validation.constraints.NotEmpty;
+
+public class LoginVO {
+	@NotEmpty(message = "id: 필수항목")
+	private String id;
+	@NotEmpty(message = "password: 필수항목")
+	private String password;
+}

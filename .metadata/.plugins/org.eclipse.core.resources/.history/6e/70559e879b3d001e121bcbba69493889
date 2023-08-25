@@ -1,0 +1,22 @@
+package springdi_assignment.tv_speaker.ver1;
+
+public class ABCspeaker implements Speaker{
+	private Speaker leftSpeaker;
+	private Speaker rightSpeaker;
+	private int volume = 0;
+	
+	
+	
+	public void volumeup() {
+		
+	}
+
+	public void volumedown() {
+		
+	}
+
+	public String getBrand() {
+		return "ABC 스피커";
+	}
+
+}
