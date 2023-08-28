@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans   
-    http://www.springframework.org/schema/beans/spring-beans.xsd
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx ="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    https://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context   
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    ">
 
 	<context:component-scan
 		base-package="kr.ac.kopo" /> <!-- 빈 자동주입 -->
@@ -32,19 +36,24 @@
 	</mvc:view-resolvers>
 	
 	<!-- 가지고 있는 모든 url을 로그인 연동 -->
-	<mvc:interceptors>
+	<!-- <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**/"/>
-			<!-- 로그인 페이지에서도 리다이렉션이 일어나지 않도록 예외 -->
+			로그인 페이지에서도 리다이렉션이 일어나지 않도록 예외
 			 <mvc:exclude-mapping path="/login"/>
-			 <!-- 게시글 목록은 회원가입 하지 않아도 볼 수 있음 -->
+			 게시글 목록은 회원가입 하지 않아도 볼 수 있음
 			<mvc:exclude-mapping path="/board"/>
-			<!-- <mvc:exclude-mapping path="/board/{no}"/> -->
+			<mvc:exclude-mapping path="/board/{no}"/>
 			<mvc:exclude-mapping path="/signup"/>
 			<mvc:exclude-mapping path="/resources/**"/>
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean id ="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 	
 	<!-- 오라클 드라이버 연동 -->
 	<bean id="dataSource"

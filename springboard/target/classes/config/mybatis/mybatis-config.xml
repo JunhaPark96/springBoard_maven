@@ -7,5 +7,6 @@
 		<typeAlias type="kr.ac.kopo.board.vo.BoardVO" alias="BoardVO"/>
 		<typeAlias type="kr.ac.kopo.board.vo.LoginVO" alias="LoginVO"/>
 		<typeAlias type="kr.ac.kopo.board.vo.MemberVO" alias="MemberVO"/>
+		<!-- <typeAlias type="kr.ac.kopo.board.vo.ReplyVO" alias="ReplyVO"/> -->
 	</typeAliases>
 </configuration>

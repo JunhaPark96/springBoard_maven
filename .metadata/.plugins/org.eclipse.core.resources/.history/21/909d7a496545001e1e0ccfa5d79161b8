@@ -1,0 +1,10 @@
+package kr.ac.kopo.board.service;
+
+import java.util.List;
+
+import kr.ac.kopo.board.vo.ReplyVO;
+
+public interface ReplyService {
+	public void newReply(ReplyVO replyVO);
+	public List<ReplyVO> getReplyByBoardNo(int bno);
+}

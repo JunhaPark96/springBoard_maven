@@ -1,0 +1,10 @@
+package kr.ac.kopo.board.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@
+public class ReplyDAOImpl {
+	@Autowired
+	final SqlSessionTemplate sqlSessionTemplate;
+}

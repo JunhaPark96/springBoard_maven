@@ -1,0 +1,32 @@
+package kr.ac.kopo.board.dao;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import kr.ac.kopo.board.vo.ReplyVO;
+
+@Repository
+public class ReplyDAOImpl implements ReplyDAO{
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;
+
+	@Override
+	public void newReply(ReplyVO vo) {
+		System.out.println(vo.toString());
+		sqlSessionTemplate.insert("springboard.board.reply.ReplyDAO.insertReply", vo);
+		System.out.println(vo.getNo());
+	}
+	@Override
+	public List<ReplyVO> getReplyByBoardNo(int bno) {
+		return sqlSessionTemplate.selectList("springboard.board.reply.ReplyDAO.selectByBoardNo", bno);
+	}
+	@Override
+	public void deleteReplyByNo(int replyNo) {
+		sqlSessionTemplate.delete("springboard.board.reply.ReplyDAO.deleteByNo");
+		
+	}
+	
+}

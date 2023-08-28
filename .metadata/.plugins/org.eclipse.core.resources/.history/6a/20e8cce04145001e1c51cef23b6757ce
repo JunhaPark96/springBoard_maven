@@ -1,0 +1,17 @@
+package kr.ac.kopo.board.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import kr.ac.kopo.board.vo.ReplyVO;
+
+public class ReplyServiceImpl implements ReplyService{
+	@Autowired
+	private Re
+	
+	@Override
+	public void newReply(ReplyVO replyVO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

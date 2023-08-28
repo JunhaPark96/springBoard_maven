@@ -32,4 +32,15 @@ public class BoardDAOImpl implements BoardDAO{
 		// sqlSessionTemplate은 commit 자동
 		sqlSessionTemplate.insert("springboard.board.dao.BoardDAO.insertNewPost", vo);
 	}
+
+	@Override
+	public void increaseCount(int no) {
+		sqlSessionTemplate.update("springboard.board.dao.BoardDAO.increaseCount", no);
+		
+	}
+
+	@Override
+	public void decreaseCount(int no) {
+		sqlSessionTemplate.update("springboard.board.dao.BoardDAO.decreaseCount", no);
+	}
 }

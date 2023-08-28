@@ -1,77 +1,136 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c"  uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상세 게시글</title>
+<title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script type="text/javascript">
+
+   function showReplyList(){
+      //1. ajax reply list select
+      //2. 화면에 보여주는 작업
+      $.ajax({
+         url : '${pageContext.request.contextPath}/reply/${boardVO.no}',
+         method : 'get', //get으로 해야 select가 됨
+         success : function(data){ //replylist를 리턴함
+            /* alert('showReplyList 성공') */
+         console.log(typeof data)
+         $('#replyList').empty();
+         $(data).each(function(){
+            str='<hr>';
+            str += '<strong>' + this.content + '</strong>';
+            str += '&nbsp;' + this.writer + '&nbsp;';
+            str += '&nbsp;' + this.regDate + '&nbsp;';
+            str += '<button type class = "delBtn" id = ' + this.no + '>삭제 </button>';
+            $('#replyList').append(str)
+         })   
+         },
+         error : function(){
+            alert('showReplyList 실패')
+         }
+         
+      })
+      
+   }
+   $(document).ready(function(){
+      showReplyList();
+      $(document).on('click', '.delBtn', function(){
+         /*  alert("쉬는 시간이요."); // alert 오타 수정 */
+          let replyNo = $(this).attr('id');
+         
+          $.ajax({
+              url: '${pageContext.request.contextPath}/reply/${boardVO.no}' + replyNo,
+              method: 'delete',
+              success: function() {
+                  /* alert('delete 성공'); // alert 오타 수정 */
+                  showReplyList();
+              },
+              error: function() {
+                  alert('delete 실패');
+              }
+          });
+      });
+      
+      $('#replyAddButton').click(function(){
+         
+         let replyContent = document.reply.content.value;
+         let replyWriter = document.reply.writer.value;
+         //alert('클릭성공')
+         $.ajax({
+            url    : '${pageContext.request.contextPath}/reply',
+            method    : 'post',
+            data    : {
+               boardNo : ${boardVO.no},
+               content   : replyContent,
+               writer   : replyWriter,
+               
+            },
+            success   : function(){
+               alert('성공했지롱')
+               showReplyList();
+            },
+            error    : function(){
+               alert('메롱~ 실패')
+            }
+         })
+      })
+   })
+</script>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}/">
-	<img alt="" src="https://realresearcher.co.kr/web/upload/NNEditor/20230803/ED91B8EBB094EC98A4_EC97B0ED95A9EB89B4EC8AA4.jpg" width="200px">
-	</a><br>
-	<a href="${pageContext.request.contextPath}/board"> 게시판-- </a>
+<a href = "${pageContext.request.contextPath}/"> 
+      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MDVfODYg%2FMDAxNjg4NTQ1MDI3ODMw.A2fJ1QMSdgIs0x72f_ELjZ84R5jkESa2jPlZb_iG_Ukg.79RJuN7Psj4mrphOdMVE9EvM0yvIovezyv_rwkLg-rUg.JPEG.gursoa%2F6.jpg&type=a340">
+   </a>
+   <a href="${pageContext.request.contextPath}/board">게시판</a>
+   <a href="${pageContext.request.contextPath}/board/new"> 새글쓰기 </a>
+   
+   <c:if test = "${empty currentUser }">
+      <a href="${pageContext.request.contextPath}/login"> 로그인 </a>
+      <a href="${pageContext.request.contextPath}/register">회원가입 </a>
+   </c:if>
+   <c:if test = "${not empty currentUser }">
+      ${currentUser.name }님 안녕하세요.
+      <a href="${pageContext.request.contextPath}/logout"> 로그아웃 </a>
+   </c:if>
+게시판 상세페이지
+   <div align="center">
+      <table border = "1" width = "60%">
+         <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>지은이</th>
+            <th>내용</th>
+            <th>작성일</th>
+            <th>댓글수</th>
+         </tr>
+         <tr>
+            <td>${boardVO.no}</td>
+            <td>${boardVO.title}</td>
+            <td>${boardVO.writer}</td>
+            <td>${boardVO.content}</td>
+            <td>${boardVO.regDate}</td>
+            <td>${boardVO.count}</td>
+         </tr>
+      </table>
+      
+      <input type="button" value="Home" onclick="location.href='${pageContext.request.contextPath}/'">
+      <input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/board'">
+      <input type="button" value="삭제" onclick="location.href='${pageContext.request.contextPath}/'">
+   </div>
+   <div>
+   <form name ="reply">
 
-	<a href="${pageContext.request.contextPath}/board/new"> 글 작성-- </a>
-
-	<%-- <a href="${pageContext.request.contextPath}/login"> 로그인 페이지 </a> --%>
-
-	<a href="${pageContext.request.contextPath}/signup"> 회원가입-- </a>
-	
-	<c:if test="${not empty  currentMember}">
-		<br>${currentMember.name } 님 안녕하세요
-		<a href="${pageContext.request.contextPath}/logout">로그아웃--</a><br>
-	</c:if>
-	<c:if test="${empty currentMember}">
-		<a href="${pageContext.request.contextPath}/login">로그인--</a><br>
-	</c:if>
-	<div align="center">
-		<table>
-			<thead>
-				<tr>
-					<th>번호</th>
-					<td>${boardVO.no}</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${boardVO.title}</td>
-				</tr>
-				<tr>
-					<th>작성자</th>
-					<td>${boardVO.writer}</td>
-				</tr>
-				<tr>
-					<th>작성일</th>
-					<td>${boardVO.regDate}</td>
-				</tr>
-				<tr>
-					<th>조회수</th>
-					<td>${boardVO.count}</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>${boardVO.content}</td>
-				</tr>
-			</thead>
-			
-			<tbody>
-			</tbody>
-		</table>
-		
-		<input type="button" value="Home" onclick="location.href='${pageContext.request.contextPath}/'">
-		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/board'">
-		<input type="button" value="삭제" onclick="location.href='${pageContext.request.contextPath}/'">
-	</div>
-	
-	<!-- 댓글 창  -->
-	<div>
-		<form action="">
-			댓글: <input type="text" size="100" name="content">
-			작성자: <input type="text" size="20" name="writer">
-		</form>
-			<input type="button" value="댓글쓰기" name="comment">
-	
-	</div>
+      댓글: <input type="text" size="100" name="content">
+      작성자: <input type="text" size="20" name="writer">
+      <input type="button" value="댓글쓰기" id = "replyAddButton">
+   </form>
+     
+   </div>
+      <div id="replyList">
+      </div>
 </body>
 </html>

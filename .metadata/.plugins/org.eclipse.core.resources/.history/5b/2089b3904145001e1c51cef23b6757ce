@@ -1,0 +1,13 @@
+package kr.ac.kopo.board.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import kr.ac.kopo.board.vo.ReplyVO;
+
+@Repository
+public interface ReplyDAO {
+	
+	public void newReply(ReplyVO replyVO); 
+}

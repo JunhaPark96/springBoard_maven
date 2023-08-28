@@ -10,4 +10,7 @@ public interface BoardDAO {
 	public BoardVO getPostByNo(int no);
 	
 	public void createNewPost(BoardVO vo);
+	
+	public void increaseCount(int no);
+	public void decreaseCount(int no);
 }
