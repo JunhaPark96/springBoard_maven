@@ -33,7 +33,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login")
-	public String loginProcess(@Valid LoginVO loginVO, Errors errors, Model model, HttpServletRequest request, HttpSession session) {
+	public String loginProcess(@Valid LoginVO loginVO, Errors errors, Model model, HttpSession session) {
 		if (errors.hasErrors()) {
 			System.out.println("로그인 실패");
 			return "member/loginForm";

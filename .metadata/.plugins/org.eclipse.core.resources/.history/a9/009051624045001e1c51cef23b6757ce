@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springboard.board.dao.ReplyDAO">
+	<resultMap type="kr.ac.kopo.board.vo.ReplyVO" id="boardMap">
+		<result column="no" property="no" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		<result column="reg_date" property="regDate" />
+		<result column="count" property="count" />
+	</resultMap>
+	<select id="selectAll" resultType="BoardVO" resultMap="boardMap">
+		select * from t_board order by no asc
+	</select>
+	
+	<select id="selectByNo" resultType="BoardVO" resultMap="boardMap" parameterType="Integer">
+		select * from t_board where no = #{no}
+	</select>
+	
+	<insert id="insertNewPost" parameterType="BoardVO">
+		insert into t_board (no, title, writer, content) values (seq_t_board_no.nextval, #{title}, #{writer}, #{content})
+	</insert>
+</mapper>

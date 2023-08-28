@@ -1,0 +1,7 @@
+package kr.ac.kopo.board.vo;
+
+public class ReplyVO {
+	private int no;
+	private String writer;
+	private 
+}

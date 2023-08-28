@@ -9,7 +9,7 @@
 </head>
 <body>
 	<a href="${pageContext.request.contextPath}/">
-	<img alt="" src="https://realresearcher.co.kr/web/upload/NNEditor/20230803/ED91B8EBB094EC98A4_EC97B0ED95A9EB89B4EC8AA4.jpg">
+	<img alt="" src="https://realresearcher.co.kr/web/upload/NNEditor/20230803/ED91B8EBB094EC98A4_EC97B0ED95A9EB89B4EC8AA4.jpg" width="200px">
 	</a><br>
 	<a href="${pageContext.request.contextPath}/board"> 게시판-- </a>
 
@@ -58,6 +58,20 @@
 			<tbody>
 			</tbody>
 		</table>
+		
+		<input type="button" value="Home" onclick="location.href='${pageContext.request.contextPath}/'">
+		<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/board'">
+		<input type="button" value="삭제" onclick="location.href='${pageContext.request.contextPath}/'">
+	</div>
+	
+	<!-- 댓글 창  -->
+	<div>
+		<form action="">
+			댓글: <input type="text" size="100" name="content">
+			작성자: <input type="text" size="20" name="writer">
+		</form>
+			<input type="button" value="댓글쓰기" name="comment">
+	
 	</div>
 </body>
 </html>

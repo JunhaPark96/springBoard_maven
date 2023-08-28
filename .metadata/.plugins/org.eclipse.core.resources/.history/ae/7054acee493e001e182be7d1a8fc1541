@@ -1,6 +1,0 @@
-package springdi_assignment.calculator.annoVer3;
-
-@Component
-public class Config {
-
-}

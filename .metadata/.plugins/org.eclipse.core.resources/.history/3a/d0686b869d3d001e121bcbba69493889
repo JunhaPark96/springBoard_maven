@@ -1,7 +1,0 @@
-package springdi_assignment.tv_speaker.ver1;
-
-public interface Speaker {
-	public void volumeup();
-	public void volumedown();
-	public String getBrand();
-}

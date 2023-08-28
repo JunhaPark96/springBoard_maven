@@ -1,7 +1,0 @@
-package springdi_assignment.tv_speaker.ver1;
-
-public class Speaker {
-	private int volume;
-	
-	
-}

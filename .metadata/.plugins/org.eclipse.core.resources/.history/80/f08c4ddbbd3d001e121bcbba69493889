@@ -1,5 +1,0 @@
-package springdi_assignment.calculator.xmlver;
-
-public interface Calculator {
-	
-}

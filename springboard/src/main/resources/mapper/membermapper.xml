@@ -5,11 +5,11 @@
 
 <mapper namespace="springboard.board.dao.MemberDAO">
 	<!-- parameterType = 요청정보, resultType = 결과정보 -->
-	<select id="login" resultType="kr.ac.kopo.board.vo.MemberVO" parameterType="kr.ac.kopo.board.vo.LoginVO">
+	<select id="login" resultType="MemberVO" parameterType="LoginVO">
 		select * from t_member where id = #{id} and password = #{password}
 	</select>
 	
-	<insert id="signup" parameterType="kr.ac.kopo.board.vo.MemberVO">
+	<insert id="signup" parameterType="MemberVO">
 		insert into t_member values (seq_t_member_no.nextval, #{id}, #{password}, #{name}, #{address})
 	</insert>
 	

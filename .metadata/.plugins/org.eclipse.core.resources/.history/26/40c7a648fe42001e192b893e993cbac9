@@ -1,7 +1,0 @@
-package kr.ac.kopo.board.interceptor;
-
-import org.springframework.web.servlet.HandlerInterceptor;
-
-public class TestInterceptor implements HandlerInterceptor{
-	
-}

@@ -1,5 +1,0 @@
-package kr.ac.kopo.board.interceptor;
-
-public class TestInterceptor implements {
-
-}
